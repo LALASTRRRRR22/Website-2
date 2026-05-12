@@ -65,7 +65,7 @@ function resolveUser($conn)
                 $user['login'] = $dbLogin !== '' ? $dbLogin : $user['login'];
                 $user['role'] = $dbRole;
                 $user['status'] = $dbStatus;
-                $user['avatar'] = $dbAvatar !== '' ? $dbAvatar : $user['avatar'];
+                $user['avatar'] = ($dbAvatar !== null && $dbAvatar !== '') ? $dbAvatar : $user['avatar'];
                 $user['phone'] = $dbPhone;
                 $user['email'] = $dbEmail;
             }
@@ -368,7 +368,7 @@ $user = resolveUser($conn);
     <div class="profile-hero">
         <div class="profile-hero-left">
             <div class="profile-avatar-wrap">
-                <img src="<?php echo htmlspecialchars($user['avatar']); ?>" alt="" class="profile-avatar-large">
+                <img src="<?php echo htmlspecialchars($user['avatar']); ?>" alt="" class="profile-avatar-large" onerror="this.src='images/icon-account.png'">
             </div>
             <div class="profile-meta">
                 <h1><?php echo htmlspecialchars($user['login']); ?></h1>

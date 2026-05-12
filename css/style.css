@@ -408,15 +408,26 @@ select.steam-input {
     appearance: none;
     -webkit-appearance: none;
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(241,245,249,0.5)' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    color-scheme: dark;
+    background-color: rgba(255,255,255,0.05) !important;
+    color: #f1f5f9 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(167,139,250,0.8)' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
     padding-right: 42px;
 }
 .steam-select option,
 select.steam-input option {
-    background: #0d0d2b;
-    color: #f1f5f9;
+    background-color: #0d0d2b !important;
+    color: #f1f5f9 !important;
+    padding: 10px 14px;
+}
+.steam-select option:hover,
+select.steam-input option:hover,
+.steam-select option:checked,
+select.steam-input option:checked {
+    background-color: #3b0764 !important;
+    color: #e9d5ff !important;
 }
 
 /* ── Forms ─────────────────────────────────────────────── */
