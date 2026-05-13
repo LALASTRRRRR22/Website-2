@@ -139,9 +139,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$loginVal = isset($_POST['login']) && ($_POST['auth_action'] ?? '') === 'login'
+$loginVal    = (isset($_POST['login']) && isset($_POST['auth_action']) && $_POST['auth_action'] === 'login')
     ? htmlspecialchars($_POST['login']) : '';
-$regLoginVal = isset($_POST['login']) && ($_POST['auth_action'] ?? '') === 'register'
+$regLoginVal = (isset($_POST['login']) && isset($_POST['auth_action']) && $_POST['auth_action'] === 'register')
     ? htmlspecialchars($_POST['login']) : '';
 ?>
 <!DOCTYPE html>
