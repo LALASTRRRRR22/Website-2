@@ -216,14 +216,45 @@
         }, { passive: true });
     }
 
-    /* ── Auth panel toggle ───────────────────────────────── */
+    /* ── Auth split-panel toggle ─────────────────────────── */
     function initAuthToggle() {
-        var container = document.querySelector('.auth-container');
-        var signInBtn = document.getElementById('signInBtn');
-        var signUpBtn = document.getElementById('signUpBtn');
+        var container      = document.querySelector('.auth-container');
         if (!container) return;
-        if (signUpBtn) signUpBtn.addEventListener('click', function (e) { e.preventDefault(); container.classList.add('right-panel-active'); });
-        if (signInBtn) signInBtn.addEventListener('click', function (e) { e.preventDefault(); container.classList.remove('right-panel-active'); });
+
+        var signInBtn      = document.getElementById('signInBtn');
+        var signUpBtn      = document.getElementById('signUpBtn');
+        var signInBtnMob   = document.getElementById('signInBtnMobile');
+        var signUpBtnMob   = document.getElementById('signUpBtnMobile');
+
+        function showRegister() {
+            container.classList.add('right-panel-active');
+            updateMobileButtons(true);
+        }
+        function showLogin() {
+            container.classList.remove('right-panel-active');
+            updateMobileButtons(false);
+        }
+
+        /* Show/hide mobile toggle buttons depending on active panel */
+        function updateMobileButtons(registerActive) {
+            var mobWrap = document.querySelector('.auth-mobile-switch');
+            if (!mobWrap) return;
+            if (registerActive) {
+                if (signUpBtnMob)  signUpBtnMob.style.display  = 'none';
+                if (signInBtnMob)  signInBtnMob.style.display  = 'inline-block';
+            } else {
+                if (signUpBtnMob)  signUpBtnMob.style.display  = 'inline-block';
+                if (signInBtnMob)  signInBtnMob.style.display  = 'none';
+            }
+        }
+
+        if (signUpBtn)    signUpBtn.addEventListener('click',    function (e) { e.preventDefault(); showRegister(); });
+        if (signInBtn)    signInBtn.addEventListener('click',    function (e) { e.preventDefault(); showLogin();    });
+        if (signUpBtnMob) signUpBtnMob.addEventListener('click', function (e) { e.preventDefault(); showRegister(); });
+        if (signInBtnMob) signInBtnMob.addEventListener('click', function (e) { e.preventDefault(); showLogin();    });
+
+        /* Sync initial state of mobile buttons */
+        updateMobileButtons(container.classList.contains('right-panel-active'));
     }
 
     /* ── Auto-dismiss alerts ─────────────────────────────── */
