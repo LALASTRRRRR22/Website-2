@@ -701,10 +701,10 @@ select.steam-input option:checked {
 .auth-form p { font-size: 0.875rem; color: var(--text-muted); text-align: center; margin-bottom: 24px; }
 
 .auth-form-sign-in { left: 0; z-index: 2; opacity: 1; transform: translateX(0); }
-.auth-form-sign-up { left: 0; z-index: 1; opacity: 0; transform: translateX(100%); pointer-events: none; }
+.auth-form-sign-up { left: 0; z-index: 2; opacity: 0; transform: translateX(110%); pointer-events: none; }
 
-.auth-container.right-panel-active .auth-form-sign-in { opacity: 0; transform: translateX(-100%); z-index: 1; pointer-events: none; }
-.auth-container.right-panel-active .auth-form-sign-up { opacity: 1; transform: translateX(0); z-index: 5; pointer-events: all; }
+.auth-container.right-panel-active .auth-form-sign-in { opacity: 0; transform: translateX(-10%); z-index: 1; pointer-events: none; }
+.auth-container.right-panel-active .auth-form-sign-up { opacity: 1; transform: translateX(100%); z-index: 2; pointer-events: all; }
 
 .auth-input {
     width: 100%;
